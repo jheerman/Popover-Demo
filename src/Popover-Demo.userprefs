@@ -1,9 +1,18 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" />
-  <MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench ActiveDocument="Controllers/PopoverDemoViewController.cs">
+    <Files>
+      <File FileName="Controllers/PopoverDemoViewController.cs" Line="46" Column="16" />
+    </Files>
     <Pads>
       <Pad Id="ProjectPad">
-        <State selected="True" />
+        <State expanded="True">
+          <Node name="Popover-Demo" expanded="True">
+            <Node name="Controllers" expanded="True">
+              <Node name="PopoverDemoViewController.cs" selected="True" />
+            </Node>
+          </Node>
+        </State>
       </Pad>
       <Pad Id="ClassPad">
         <State selected="True" />
