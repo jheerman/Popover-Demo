@@ -7,9 +7,10 @@ namespace PopoverDemo
 {
 	public partial class PopoverDetailController : UIViewController
 	{
+		public event EventHandler<EventArgs> ButtonClicked;
+		
 		public PopoverDetailController () : base ("PopoverDetailController", null)
-		{
-		}
+		{ }
 		
 		public override void DidReceiveMemoryWarning ()
 		{
@@ -25,14 +26,24 @@ namespace PopoverDemo
 			
 			//any additional setup after loading the view, typically from a nib.
 			base.ViewDidUnload ();
-			var label = new UILabel(new RectangleF(25f, 25f, 150f, 25f));
-			label.Text = "This is a popover";
-			label.TextAlignment = UITextAlignment.Center;
+			var label = new UILabel
+			{
+				Text = "This is a popover",
+				TextAlignment = UITextAlignment.Center,
+				Frame = new RectangleF(25f, 25f, 150f, 25f)
+			};
+			
 			View.AddSubview (label);
 			
 			var button = UIButton.FromType (UIButtonType.RoundedRect);
 			button.Frame = new RectangleF(25f, 75f, 150f, 50f);
-			button.SetTitle ("Ok", UIControlState.Normal);
+			button.SetTitle ("Dismiss", UIControlState.Normal);
+			button.TouchUpInside += (sender, e) => 
+				{
+					if (ButtonClicked != null)
+						ButtonClicked (sender, e);
+				};
+			
 			View.AddSubview (button);
 		}
 		
@@ -48,5 +59,7 @@ namespace PopoverDemo
 			return true;
 		}
 	}
+	
+	
 }
 

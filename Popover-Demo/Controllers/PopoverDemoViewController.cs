@@ -11,8 +11,9 @@ namespace PopoverDemo
 		UIPopoverController _popUp;
 		
 		public PopoverDemoViewController () : base ("PopoverDemoViewController", null)
-		{ 
+		{
 			_contentController = new PopoverDetailController();
+			_contentController.ButtonClicked += (sender, e) => { _popUp.Dismiss (true); };
 			_popUp = new UIPopoverController(_contentController);
 		}
 		
